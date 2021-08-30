@@ -5,11 +5,13 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -20,13 +22,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.daniel.farage.composeinitiation.meditation.HomeScreen
-import com.daniel.farage.composeinitiation.ui.theme.ComposeInitiationTheme
-import com.daniel.farage.composeinitiation.views.AudioSwitcher
+import com.daniel.farage.composeinitiation.dropdown.DropDown
+import com.daniel.farage.composeinitiation.timer.TimerCountdown
 import com.daniel.farage.composeinitiation.views.ImageCard
 import com.daniel.farage.composeinitiation.views.TitleView
-import com.daniel.farage.composeinitiation.views.VolumeBar
-import kotlin.math.roundToInt
 
 class MainActivity : ComponentActivity() {
     @ExperimentalFoundationApi
@@ -35,8 +34,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            ComposeInitiationTheme {
-                HomeScreen()
+            Surface(
+                color = Color(0xFF101010),
+                modifier = Modifier.fillMaxSize()
+            ) {
+                DropDown(text = "Teste", modifier = Modifier.padding(15.dp)) {
+                    TimerCountdown()
+                }
             }
         }
     }
