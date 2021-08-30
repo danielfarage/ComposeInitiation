@@ -35,6 +35,8 @@ import com.daniel.farage.composeinitiation.ui.theme.*
 @Composable
 fun HomeScreen(
 ) {
+    /*Layout: https://dribbble.com/shots/15822493-Meditation-Mobile-App/attachments/7638426?mode=media
+    * */
     Box(
         modifier = Modifier
             .background(DeepBlue)
