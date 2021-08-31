@@ -1,14 +1,20 @@
 package com.daniel.farage.composeinitiation.instagram
 
 import androidx.compose.animation.*
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.daniel.farage.composeinitiation.R
 import com.daniel.farage.composeinitiation.instagram.model.StoryHighlight
+import com.daniel.farage.composeinitiation.mediaquery.Dimensions
+import com.daniel.farage.composeinitiation.mediaquery.greaterThan
+import com.daniel.farage.composeinitiation.mediaquery.lessThan
+import com.daniel.farage.composeinitiation.mediaquery.mediaQuery
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
@@ -18,7 +24,22 @@ fun ProfileScreen() {
     }
 
     Column(modifier = Modifier.fillMaxSize()) {
-        TopBar(name = "daniel_farage", modifier = Modifier.padding(10.dp))
+        TopBar(
+            name = "daniel_farage", modifier = Modifier
+                .padding(10.dp)
+                .mediaQuery(
+                    comparator = Dimensions.Width lessThan 400.dp,
+                    modifier = Modifier.background(
+                        Color.Red
+                    )
+                )
+                .mediaQuery(
+                    comparator = Dimensions.Width greaterThan  400.dp,
+                    modifier = Modifier.background(
+                        Color.Green
+                    )
+                )
+        )
         Spacer(modifier = Modifier.height(4.dp))
         ProfileSection()
         Spacer(modifier = Modifier.height(25.dp))

@@ -12,7 +12,12 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.daniel.farage.composeinitiation.instagram.ProfileScreen
+import com.daniel.farage.composeinitiation.mediaquery.Dimensions
+import com.daniel.farage.composeinitiation.mediaquery.MediaQuery
+import com.daniel.farage.composeinitiation.mediaquery.greaterThan
+import com.daniel.farage.composeinitiation.mediaquery.lessThan
 import com.daniel.farage.composeinitiation.views.ImageCard
 import com.daniel.farage.composeinitiation.views.TitleView
 
@@ -23,8 +28,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
+                ProfileScreen()
 
-            ProfileScreen()
 
         }
     }
