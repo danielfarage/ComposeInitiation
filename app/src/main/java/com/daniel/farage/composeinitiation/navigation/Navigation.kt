@@ -14,11 +14,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
+import com.daniel.farage.composeinitiation.views.SpashScreen
 
 @Composable
 fun Navigation() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Screen.MainScreen.route) {
+    NavHost(navController = navController, startDestination = Screen.SplashScreen.route) {
+        composable(route = Screen.SplashScreen.route) {
+            SpashScreen(navController = navController)
+        }
         composable(route = Screen.MainScreen.route) {
             MainScreen(navController = navController)
         }
